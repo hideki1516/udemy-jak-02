@@ -8,7 +8,7 @@ export const About = () => {
       <br />
       <Link to='/about/access'>Access</Link>
       <br />
-      <Link to='/about/about-id/999'>AboutId</Link>
+      <Link to='/about/about-id/999?name=hagehage'>AboutId</Link>
     </div>
   );
 };
