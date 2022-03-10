@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
+
+import { Home } from './Home';
+import { Page1 } from './Page1';
+import { Page2 } from './Page2';
+import { About } from './About';
+import { Page1DetailA } from './Page1DetailA';
+import { Page1DetailB } from './Page1DetailB';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>    
+      <div className="App">
+        <Link to='/'>Home</Link>
+        <br />
+        <Link to='/page1'>Page1</Link>
+        <br />
+        <Link to='/page2'>Page2</Link>
+        <br />
+        <Link to='about'>About</Link>
+      </div>
+      <Switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route path='/page1' render={({ match: {url} }) => (
+          <Switch>
+            <Route exact path={url}>
+              <Page1 />
+            </Route>
+            <Route path={`${url}/detailA`}>
+              <Page1DetailA />
+            </Route>
+            <Route path={`${url}/detailB`}>
+              <Page1DetailB />
+            </Route>
+          </Switch>
+        )} />
+        <Route path='/page2'>
+          <Page2 />
+        </Route>
+        <Route>
+          <About />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
