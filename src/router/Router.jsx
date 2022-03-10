@@ -4,6 +4,7 @@ import { Home } from '../Home';
 import { page1Routes } from './Page1Routes';
 import { aboutRouters } from './AboutRouters';
 import { page2Routes } from './Page2Routes';
+import { Page404 } from '../Page404';
 
 export const Router = () => {
   return (
@@ -47,6 +48,10 @@ export const Router = () => {
             ))}
           </Switch>
       )} />
+
+      <Route path='*'>
+        <Page404 />
+      </Route>
     </Switch>
   );
 };

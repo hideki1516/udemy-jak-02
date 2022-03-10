@@ -1,7 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export const About = () => {
-  const message = 'Corporateページです'
+  const message = 'Corporateページです';
+
+  const history = useHistory();
+  const onClickCorporate = () => {
+    history.push('/about/corporate');
+  };
 
   return (
     <div>
@@ -11,6 +16,8 @@ export const About = () => {
       <Link to={{pathname: '/about/access'}}>Access</Link>
       <br />
       <Link to={{pathname: '/about/about-id/999?name=hagehage'}}>AboutId</Link>
+      <br />
+      <button onClick={onClickCorporate}>Corporate</button>
     </div>
   );
 };
