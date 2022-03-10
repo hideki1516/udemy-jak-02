@@ -7,6 +7,8 @@ export const About = () => {
       <Link to='/about/corporate'>Corporate</Link>
       <br />
       <Link to='/about/access'>Access</Link>
+      <br />
+      <Link to='/about/about-id/999'>AboutId</Link>
     </div>
   );
 };
