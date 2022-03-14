@@ -1,7 +1,12 @@
+import React, { useContext, userContext } from 'react';
 import styled from "styled-components";
+import { UserContext } from '../../../provider/UserProvider';
 
 export const UserIconWithName = (props) => {
   const { image, name, isAdmin } = props;
+  // 引数に参照するコンテキストを指定する
+  const context = useContext(UserContext);
+
   return (
     <SContainer>
       <SImg height={160} width={160} src={image} alt={name} />

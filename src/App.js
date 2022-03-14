@@ -1,4 +1,5 @@
 import { Router } from './router/Router';
+import { UserProvider } from './provider/UserProvider';
 
 const product = {
   image: 'https://source.unsplash.com/lbEL705stOw',
@@ -10,6 +11,8 @@ const product = {
 
 export const App = () => {
   return (
-    <Router />
+    <UserProvider>
+      <Router />
+    </UserProvider>
   );
 };
