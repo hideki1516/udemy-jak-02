@@ -4,11 +4,18 @@ import { useHistory } from 'react-router-dom';
 import { SecondaryButton } from '../atoms/button/SecondaryButton'
 import { UserContext } from '../../provider/UserProvider';
 import { ProductContext } from '../../provider/ProductProvider';
+import { useSetRecoilState } from 'recoil'; // 値は参照しないけど更新だけする
+import { userState } from "../../store/userState";
 
 export const Top = () => {
   const history = useHistory();
 
-  const { setUserInfo } = useContext(UserContext);
+  // useContext
+  // const { setUserInfo } = useContext(UserContext);
+
+  // Recoil
+  const setUserInfo = useSetRecoilState(userState);
+
   const { setProductUserInfo } = useContext(ProductContext);
 
   // 管理者ユーザーならstateのisAdmin:trueを渡す

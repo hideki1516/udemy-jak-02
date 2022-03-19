@@ -1,9 +1,12 @@
+// import React, { useContext } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import { SearchInput } from '../molecules/SearchInput';
 import { UserCard } from "../organisms/user/UserCard";
 import { SecondaryButton } from '../atoms/button/SecondaryButton'
-import { useContext } from "react";
-import { UserContext } from "../../provider/UserProvider";
+// import { UserContext } from "../../provider/UserProvider";
+import { useRecoilState } from 'recoil';
+import { userState } from "../../store/userState";
 
 export const Users = () => {  
   // 0〜9の値を持った10件を生成する
@@ -22,7 +25,12 @@ export const Users = () => {
     };
   }));
 
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  // useContext
+  // const { userInfo, setUserInfo } = useContext(UserContext);
+
+  // Recoil
+  const [ userInfo, setUserInfo ] = useRecoilState(userState);
+
   const onClickSwitch = () => setUserInfo({ isAdmin: !userInfo.isAdmin });
 
   return (
