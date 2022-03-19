@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Top } from "../components/pages/Top";
 import { Users } from "../components/pages/Users";
+import { Products } from "../components/pages/Products";
 import { DefaultLayout } from '../components/templates/DefaultLayout';
 import { HeaderOnly } from '../components/templates/HeaderOnly';
 
@@ -16,6 +17,11 @@ export const Router = () => {
         <Route path='/users'>
           <HeaderOnly>
             <Users />
+          </HeaderOnly>
+        </Route>
+        <Route>
+          <HeaderOnly>
+            <Products />
           </HeaderOnly>
         </Route>
       </Switch>

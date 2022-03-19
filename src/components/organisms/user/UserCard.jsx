@@ -4,11 +4,11 @@ import { UserIconWithName } from "../../molecules/user/UserIconWithName";
 
 // 親で設定したデータ（user）をprops（user）として受け取る = 分割代入で展開する
 export const UserCard = (props) => {
-  const { user, isAdmin } = props;
+  const { user } = props;
 
   return (
     <Card>
-      <UserIconWithName image={user.image} name={user.name} isAdmin={isAdmin} />
+      <UserIconWithName image={user.image} name={user.name} />
       <SDl>
         <dt>メール</dt>
         <dd>{user.email}</dd>

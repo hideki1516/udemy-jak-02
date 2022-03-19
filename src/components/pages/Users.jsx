@@ -1,13 +1,8 @@
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
 import { SearchInput } from '../molecules/SearchInput';
 import { UserCard } from "../organisms/user/UserCard";
 
 export const Users = () => {
-  // useLocationで遷移前の値を取得する
-  const { state } = useLocation();
-  // stateの値がtrueかfalseかを判定する
-  const isAdmin = state ? state.isAdmin : false;
   
   // 0〜9の値を持った10件を生成する
   const users = [...Array(10).keys()].map(((val) => {
@@ -31,7 +26,7 @@ export const Users = () => {
       <SearchInput />
       <SUserArea>
         {users.map((user) => (
-          <UserCard key={user.id} user={user} isAdmin={isAdmin} />
+          <UserCard key={user.id} user={user} />
         ))}
       </SUserArea>
     </SContainer>

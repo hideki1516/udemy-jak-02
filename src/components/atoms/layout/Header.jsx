@@ -6,6 +6,7 @@ export const Header = () => {
     <SHeader>
       <SLink to='/'>HOME</SLink>
       <SLink to='/users'>USERS</SLink>
+      <SLink to='/products'>PRODUCTS</SLink>
     </SHeader>
   );
 };
