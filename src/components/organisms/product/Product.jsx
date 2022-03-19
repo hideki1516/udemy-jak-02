@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import styled from "styled-components";
 import { ProductImageWithCategory } from "../../molecules/product/ProductImageWithCategory";
 import { ProductSum } from "../../molecules/product/ProductSum";
 import { ProductContext } from '../../../provider/ProductProvider';
 
-export const Product = (props) => {
+export const Product = memo((props) => {
   const { product } = props;
   const { productUserInfo } = useContext(ProductContext);
   const isAdmin = productUserInfo ? productUserInfo.Admin : false;
@@ -22,7 +22,7 @@ export const Product = (props) => {
       <SButton>詳細を見る</SButton>
     </SProductWrapper>
   );
-};
+});
 
 const SProductWrapper = styled.div`
   width: 320px;

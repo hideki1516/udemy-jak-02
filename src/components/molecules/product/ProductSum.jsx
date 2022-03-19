@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import styled from "styled-components";
 
-export const ProductSum = (props) => {
+export const ProductSum = memo((props) => {
   const { product } = props;
   const [ sum, setSum ] = useState(product.price);
 
@@ -23,7 +23,7 @@ export const ProductSum = (props) => {
       <p className="sum">合計金額：{sum}円</p>
     </SProductSum>
   );
-};
+});
 
 const SProductSum = styled.div`
   border-top: 1px dotted #333;

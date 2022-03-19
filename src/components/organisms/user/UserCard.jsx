@@ -1,9 +1,12 @@
+import React, { memo } from "react";
 import styled from "styled-components";
 import { Card } from "../../atoms/card/Card";
 import { UserIconWithName } from "../../molecules/user/UserIconWithName";
 
 // 親で設定したデータ（user）をprops（user）として受け取る = 分割代入で展開する
-export const UserCard = (props) => {
+// memoで再レンダリングを防ぐ
+export const UserCard = memo((props) => {
+  console.log('UserCard');
   const { user } = props;
 
   return (
@@ -21,7 +24,7 @@ export const UserCard = (props) => {
       </SDl>
     </Card>
   );
-};
+});
 
 const SDl = styled.dl`
   text-align: left;

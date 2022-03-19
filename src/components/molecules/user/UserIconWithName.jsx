@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import styled from "styled-components";
 import { UserContext } from '../../../provider/UserProvider';
 
-export const UserIconWithName = (props) => {
+// memoで再レンダリングを防ぐ
+export const UserIconWithName = memo((props) => {
+  console.log('UserIconWithName');
   const { image, name } = props;
   // 引数に参照するコンテキストを指定する
   const { userInfo } = useContext(UserContext);
@@ -17,7 +19,7 @@ export const UserIconWithName = (props) => {
       {isAdmin && <SEdit>編集</SEdit>}
     </SContainer>
   );
-};
+});
 
 const SContainer = styled.div`
   text-align: center;
